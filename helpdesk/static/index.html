@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Учёт заявок в техподдержку учебного корпуса"><title>ServiceDesk — заявки</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
+<body>
+<header><a href="/" class="brand"><span class="mark">С</span> ServiceDesk</a><div class="account" id="account" hidden><span id="username"></span><button class="quiet" id="logout">Выйти</button></div></header>
+<main>
+<section id="login-panel" class="login-layout">
+  <div><p class="intro">Техподдержка учебного корпуса</p><h1>Чтобы техника<br>не мешала учиться.</h1><p class="lead">Сообщите о проблеме и следите за её решением.<br>Все обращения остаются в одном месте.</p><div class="flow">Новая заявка <span>›</span> В работе <span>›</span> Решена</div></div>
+  <form id="login-form" class="login-form"><h2>Вход в систему</h2><label>Логин<input name="username" autocomplete="username" required maxlength="50" value="student"></label><label>Пароль<input name="password" type="password" autocomplete="current-password" required></label><button class="primary" type="submit">Войти</button><p class="hint">Учебный стенд. Тестовые аккаунты описаны<br>в инструкции к проекту.</p><p id="login-error" class="error" role="alert"></p></form>
+</section>
+<section id="workspace" hidden>
+ <div class="page-title"><div><p class="intro" id="role-label">Личный кабинет</p><h1>Заявки в поддержку</h1></div><div class="page-actions"><button id="export">Скачать CSV</button><button class="primary" id="new-ticket">Создать заявку</button></div></div>
+ <div class="toolbar"><label>Показать<select id="status-filter"><option value="">Все статусы</option><option value="new">Новые</option><option value="work">В работе</option><option value="done">Решённые</option></select></label><p id="summary" aria-live="polite"></p></div>
+ <p id="notice" role="status"></p><p id="app-error" class="error" role="alert"></p>
+ <div class="table-wrap"><table><thead><tr><th>№</th><th>Обращение</th><th>Приоритет</th><th>Статус</th><th>Действия</th></tr></thead><tbody id="tickets"></tbody></table></div>
+ <p id="empty" hidden>Заявок пока нет. Создайте первое обращение.</p>
+</section>
+<dialog id="create-dialog"><form id="ticket-form"><div class="dialog-title"><h2>Новая заявка</h2><button type="button" class="quiet close-dialog" aria-label="Закрыть">✕</button></div><label>Тема<input name="title" required minlength="3" maxlength="120" placeholder="Например, не работает принтер"></label><label>Описание<textarea name="description" required maxlength="2000" rows="4" placeholder="Где возникла проблема и что происходит"></textarea></label><label>Приоритет<select name="priority"><option value="normal">Обычный</option><option value="high">Высокий</option><option value="low">Низкий</option></select></label><p id="create-error" class="error" role="alert"></p><button class="primary" type="submit">Отправить заявку</button></form></dialog>
+<dialog id="detail-dialog"><div class="dialog-title"><h2 id="detail-title"></h2><button class="quiet close-dialog" aria-label="Закрыть">✕</button></div><p id="detail-body" class="description"></p><p id="detail-meta" class="hint"></p></dialog>
+</main><footer>ServiceDesk <span>Учебный проект · Манько Аким · 2026</span></footer>
+</body></html>

@@ -1,0 +1,14 @@
+.git
+.venv
+.tools
+.runtime
+.ruff_cache
+__pycache__
+*.pyc
+.env
+.env.demo
+.env.production
+data
+logs
+backups
+dist

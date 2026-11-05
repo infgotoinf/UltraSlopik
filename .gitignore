@@ -1,0 +1,15 @@
+.env
+.env.demo
+.env.production
+.venv/
+.tools/
+.ruff_cache/
+__pycache__/
+*.pyc
+data/
+backups/
+logs/
+dist/
+.runtime/
+*.db
+*.db-*
